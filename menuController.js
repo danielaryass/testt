@@ -30,7 +30,44 @@ const getAllMenu = async (req, res) => {
   return res.json(responseJSON);
 };
 
+const editMenu = async (req, res) => {
+  const { id } = req.params;
+  const { deskripsi, nama, makanan_pelengkap, kategori } = req.body;
+  try {
+    const menu = await prisma.menus.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        nama,
+        deskripsi,
+        kategori,
+        makanan_pelengkap,
+      },
+    });
+    return res.json(menu);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deleteMenu = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const menu = await prisma.menus.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return res.json(menu);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   createMenu,
   getAllMenu,
+  editMenu,
+  deleteMenu,
 };

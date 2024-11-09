@@ -17,6 +17,8 @@ app.use(bodyParser.json())
 
 app.post("/menus", menuController.createMenu);
 app.get("/menus", menuController.getAllMenu);
+app.put("/menus/:id", menuController.editMenu);
+app.delete("/menus/:id", menuController.deleteMenu);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

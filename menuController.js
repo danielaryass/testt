@@ -27,7 +27,7 @@ const getAllMenu = async (req, res) => {
     status: 200,
     message: "success",
   };
-  return res.json(menus);
+  return res.json(responseJSON);
 };
 
 module.exports = {

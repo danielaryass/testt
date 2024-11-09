@@ -26,4 +26,5 @@ const getAllMenu = async (req, res) => {
 
 module.exports = {
   createMenu,
+  getAllMenu
 };

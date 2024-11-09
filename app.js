@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
 app.use(bodyParser.json())
 
 app.post("/menus", menuController.createMenu);
+app.get("/menus", menuController.getAllMenu);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

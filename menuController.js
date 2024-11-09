@@ -19,6 +19,11 @@ const createMenu = async (req, res) => {
   }
 };
 
+const getAllMenu = async (req, res) => {
+  const menus = await prisma.menus.findMany();
+  return res.json(menus);
+};
+
 module.exports = {
   createMenu,
 };

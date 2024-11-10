@@ -66,6 +66,7 @@ const deleteMenu = async (req, res) => {
 };
 const getDetailMenu = async (req, res) => {
   const { id } = req.params;
+  console.log(id)
   try {
     const menu = await prisma.menus.findUnique({
       where: {

@@ -64,10 +64,24 @@ const deleteMenu = async (req, res) => {
     console.log(err);
   }
 };
+const getDetailMenu = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const menu = await prisma.menus.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    return res.json(menu);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports = {
   createMenu,
   getAllMenu,
   editMenu,
   deleteMenu,
+  getDetailMenu,
 };
